@@ -1,0 +1,61 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="contact-edit" #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="title">title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            [ngModel]="video?.title"
+            #title="ngModel"
+            class="form-control required"
+            size="120"
+            max="120"
+            required>
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label for="email">subtitle</label>
+          <input
+            type="text"
+            id="subtitle"
+            name="subtitle"
+            [ngModel]="video?.subtitle"
+            #subtitle="ngModel"
+            class="form-control"
+            size="120"
+            max="255">
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label for="imageUrl">Image URL</label>
+          <input
+            type="text"
+            id="imageUrl"
+            name="imageUrl"
+            [ngModel]="contact?.imageUrl"
+            #imageUrl="ngModel"
+            class="form-control"
+            size="150"
+            max="255">
+        </div>
+      </div>
+
+      <div class="row" *ngIf="(name.touched && name.invalid)">
+        <div class="col-sm-12 alert alert-danger">
+          The Name is required.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
